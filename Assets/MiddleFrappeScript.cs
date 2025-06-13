@@ -8,7 +8,6 @@ public class MiddleFrappeScript : MonoBehaviour
         logic = GameObject.Find("Logic Manager").GetComponent<LogicManagerScript>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -16,6 +15,9 @@ public class MiddleFrappeScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        logic.addScore();
+        if (collision.gameObject.layer == 3)
+        {
+            logic.addScore(1);
+        }
     }
 }
